@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
         ivImage = findViewById(R.id.ivImage);
         Take_Picture = findViewById(R.id.btnPicture);
         Submit = findViewById(R.id.btnSubmit);
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
 
         queryPost();
 

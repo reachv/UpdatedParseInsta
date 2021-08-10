@@ -27,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         if(ParseUser.getCurrentUser() != null){
             goMainActivity();
         }
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
