@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     Button Take_Picture;
     ImageView ivImage;
     Button Submit;
+    Button logout;
+
     private File photoFile;
     private String photoFileName = "photo.jpg";
     @Override
@@ -50,14 +53,22 @@ public class MainActivity extends AppCompatActivity {
         ivImage = findViewById(R.id.ivImage);
         Take_Picture = findViewById(R.id.btnPicture);
         Submit = findViewById(R.id.btnSubmit);
-
+        logout = findViewById(R.id.btn_logout);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.nux_dayone_landing_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         queryPost();
 
